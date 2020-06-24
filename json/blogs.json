@@ -1,0 +1,15 @@
+{
+  "count": 1,
+  "blogs": [
+    {
+      "title": "How to create and host a blog with react and github pages: part 1",
+      "date": "Wed, 24 Jun 2020 19:34:02 GMT",
+      "language": "js",
+      "framework": "react",
+      "file": "blog1.json",
+      "front": "",
+      "readTime": 10,
+      "votes": 1
+    }
+  ]
+}
