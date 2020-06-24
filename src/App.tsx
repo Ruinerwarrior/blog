@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Page from "./Page";
+import Header from "./components/Header";
+import PostsHeader from "./components/PostsHeader";
+import Posts from "./components/Posts";
+import PostsWrapper from "./components/PostsWrapper";
+
+import { BrowserRouter } from "react-router-dom";
+import Content from "./components/Content";
+
+const App: React.FunctionComponent = () => (
+  <BrowserRouter>
+    <PostsWrapper>
+      <Page>
+        <Header />
+        <Content>
+          <PostsHeader />
+          <Posts />
+        </Content>
+      </Page>
+    </PostsWrapper>
+  </BrowserRouter>
+
+);
 
 export default App;
