@@ -58,10 +58,6 @@ const PostsWrapper: React.FunctionComponent = ({ children }) => {
     setPosts(filtered);
   }
 
-  const filterOnTitle = () => {
-
-  }
-
   const sortOnDate = async(filterState: FilterState) => {
     let sorted = (await Api.getAll<{blogs: Array<IPost>}>(Api.blogsroute)).blogs;
 
