@@ -53,8 +53,6 @@ const PostsWrapper: React.FunctionComponent = ({ children }) => {
 
     let filtered = (await Api.getAll<{blogs: Array<IPost>}>(Api.blogsroute)).blogs;
     filtered = filtered.filter(b => b.language === filter);
-
-    console.log("test2");
     setPosts(filtered);
   }
 
