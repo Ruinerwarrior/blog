@@ -10,7 +10,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Content from "./components/Content";
 
 const App: React.FunctionComponent = () => (
-  <BrowserRouter>
+  <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
     <Switch>
       <Route path="/">
         <PostsWrapper>
