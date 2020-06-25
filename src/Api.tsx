@@ -7,7 +7,8 @@ const headers = {
 }
 
 async function getAll<T>(route: string): Promise<T> {
-  const response = await fetch(`http://localhost:3000/${route}`, { method: 'GET', headers });
+  console.log("test", process.env.REACT_APP_API_URL);
+  const response = await fetch(`${process.env.REACT_APP_API_URL}${route}`, { method: 'GET', headers });
 
   if (!response.ok)
     throw new Error(`HTTP error status: ${response.status}`);
