@@ -45,6 +45,7 @@ const PostsWrapper: React.FunctionComponent = ({ children }) => {
 
   React.useEffect(() => {
     if (location.pathname !== "/")
+      console.log(location.pathname);
       filterOnLanguage(location.pathname.substr(1));
 
   }, [location]);

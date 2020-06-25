@@ -6,25 +6,21 @@ import PostsHeader from "./components/PostsHeader";
 import Posts from "./components/Posts";
 import PostsWrapper from "./components/PostsWrapper";
 
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Content from "./components/Content";
 
 const App: React.FunctionComponent = () => (
-  <HashRouter basename={`${process.env.PUBLIC_URL}`}>
-    <Switch>
-      <Route path="/">
-        <PostsWrapper>
-          <Page>
-            <Header />
-            <Content>
-              <PostsHeader />
-              <Posts />
-            </Content>
-          </Page>
-        </PostsWrapper>
-      </Route>
-    </Switch>
-  </HashRouter>
+  <BrowserRouter>
+    <PostsWrapper>
+      <Page>
+        <Header />
+        <Content>
+          <PostsHeader />
+          <Posts />
+        </Content>
+      </Page>
+    </PostsWrapper>
+  </BrowserRouter>
 
 );
 

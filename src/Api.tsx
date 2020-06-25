@@ -7,13 +7,11 @@ const headers = {
 }
 
 async function getAll<T>(route: string): Promise<T> {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}${route}`, { method: 'GET', headers });
-  try {
-    if (!response.ok)
-      throw new Error(`HTTP error status: ${response.status}`);
-  } catch (error) {
-    console.error(error);
-  }
+  const response = await fetch(`${route}`, { method: 'GET', headers});
+
+  if (!response.ok)
+    throw new Error(`HTTP error status: ${response.status}`);
+
   return response.json();
 }
 
