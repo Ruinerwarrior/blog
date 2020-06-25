@@ -2,7 +2,7 @@ import * as React from "react";
 
 import NavItem from "./NavItem";
 import Image from "./Image";
-
+import Text from "./Text";
 
 interface IProps {
   title: string;
@@ -18,6 +18,7 @@ const MenuItem: React.FunctionComponent<IProps> = ({ title, route, image, color 
     to={`${route}`}
   >
     <Image src={image} color={color}/>
+    <Text>{title}</Text>
   </NavItem >
 );
 

@@ -12,6 +12,10 @@ const Posts: React.FunctionComponent = () => {
       {
         posts.map((b, i) => <Post key={b.title + i} {...b} />)
       }
+      {
+        posts.length === 0 &&
+        "No posts found on this subject"
+      }
     </List>
   )
 }
