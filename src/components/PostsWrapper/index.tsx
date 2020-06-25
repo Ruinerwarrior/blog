@@ -38,7 +38,7 @@ const PostsWrapper: React.FunctionComponent = ({ children }) => {
   React.useEffect(() => {
     (async () => {
       const posts = await Api.getAll<{blogs: Array<IPost>}>(Api.blogsroute);
-      console.log("test1");
+      console.log("test1", posts);
       setPosts(posts.blogs);
     })();
   }, [])

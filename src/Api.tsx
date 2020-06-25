@@ -14,7 +14,6 @@ async function getAll<T>(route: string): Promise<T> {
   } catch (error) {
     console.error(error);
   }
-
   return response.json();
 }
 
