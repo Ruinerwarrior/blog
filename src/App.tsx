@@ -6,11 +6,11 @@ import PostsHeader from "./components/PostsHeader";
 import Posts from "./components/Posts";
 import PostsWrapper from "./components/PostsWrapper";
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import Content from "./components/Content";
 
 const App: React.FunctionComponent = () => (
-  <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
+  <HashRouter basename={`${process.env.PUBLIC_URL}`}>
     <Switch>
       <Route path="/">
         <PostsWrapper>
@@ -24,7 +24,7 @@ const App: React.FunctionComponent = () => (
         </PostsWrapper>
       </Route>
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 
 );
 
