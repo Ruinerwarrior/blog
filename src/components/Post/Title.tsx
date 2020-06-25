@@ -6,6 +6,7 @@ const Title = styled.p`
   grid-column: 2;
   grid-row: 2;
   justify-self: left;
+  margin: 1vh 0 1vh 0;
 
   @media(max-width: 500px) {
     font-size: 1.3rem;
