@@ -5,7 +5,6 @@ import moment from "moment";
 import PostDate from "./PostDate";
 import Text from "./Text";
 import Title from "./Title";
-import Vote from "./Vote";
 import MaximizeButton from "./MaximizeButton";
 import * as Api from "../../Api";
 
@@ -34,8 +33,7 @@ const Post: React.FunctionComponent<IProps> = ({ title, date, votes, file }) => 
 
   return (
     <Article isMaximized={isMaximized} >
-      <PostDate>Date: {moment(new Date()).format("DD-MMM-YYYY")}</PostDate>
-      <Vote changeVote={() => { }} nrOfVotes={votes} />
+      <PostDate>Date: {moment(new Date(date)).format("DD-MMM-YYYY")}</PostDate>
       <Title>{title}</Title>
 
       <Text dangerouslySetInnerHTML={{__html: innerHtml}}>

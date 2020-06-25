@@ -17,7 +17,7 @@ const MenuItem: React.FunctionComponent<IProps> = ({ title, route, image, color 
     exact={route === ""}
     to={`${route}`}
   >
-    <Image src={image}/>
+    <Image src={image} color={color}/>
   </NavItem >
 );
 

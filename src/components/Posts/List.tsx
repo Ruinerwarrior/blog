@@ -8,6 +8,7 @@ const List = styled.section`
   grid-column-end: 3;
   grid-auto-rows: minmax(30vh, auto);
   gap: 1vh;
+  margin-bottom: 2vh;
 `;
 
 export default List;

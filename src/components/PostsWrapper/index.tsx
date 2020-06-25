@@ -19,7 +19,6 @@ interface IPost {
 interface IPostsContext {
   posts: Array<IPost>;
   sortOnDate: (filterState: FilterState) => void;
-  sortOnPopularity: (filterState: FilterState) => void;
 };
 
 export enum FilterState {
@@ -37,7 +36,7 @@ const PostsWrapper: React.FunctionComponent = ({ children }) => {
 
   React.useEffect(() => {
     (async () => {
-      const posts = await Api.getAll<{blogs: Array<IPost>}>(Api.blogsroute);  
+      const posts = await Api.getAll<{ blogs: Array<IPost> }>(Api.blogsroute);
       setPosts(posts.blogs);
     })();
   }, [])
@@ -50,35 +49,27 @@ const PostsWrapper: React.FunctionComponent = ({ children }) => {
 
   const filterOnLanguage = async (filter: string) => {
 
-    let filtered = (await Api.getAll<{blogs: Array<IPost>}>(Api.blogsroute)).blogs;
+    let filtered = (await Api.getAll<{ blogs: Array<IPost> }>(Api.blogsroute)).blogs;
     filtered = filtered.filter(b => b.language === filter);
     setPosts(filtered);
   }
 
-  const sortOnDate = async(filterState: FilterState) => {
-    let sorted = (await Api.getAll<{blogs: Array<IPost>}>(Api.blogsroute)).blogs;
+  const sortOnDate = async (filterState: FilterState) => {
+    let sorted = (await Api.getAll<{ blogs: Array<IPost> }>(Api.blogsroute)).blogs;
 
-    if (filterState === FilterState.ASC)
-      sorted.sort((a, b) => moment(a.date).diff(moment(b.date)));
-    else
-      sorted.sort((a, b) => moment(b.date).diff(moment(a.date)));
+    if (sorted.length > 0) {
+      if (filterState === FilterState.ASC)
+        sorted.sort((a, b) => moment(new Date(b.date)).diff(moment(new Date(a.date))));
+      else
+        sorted.sort((a, b) => moment(new Date(a.date)).diff(moment(new Date(b.date))));
 
-    setPosts({ ...sorted });
-  }
 
-  const sortOnPopularity = (filterState: FilterState) => {
-    let sorted: Array<IPost> = posts;
-
-    if (filterState === FilterState.ASC)
-      sorted.sort((a, b) => a.votes - b.votes);
-    else
-      sorted.sort((a, b) => b.votes - a.votes);
-
-    setPosts(sorted);
+      setPosts(sorted);
+    }
   }
 
   return (
-    <PostsContext.Provider value={{ posts, sortOnDate, sortOnPopularity }}>
+    <PostsContext.Provider value={{ posts, sortOnDate }}>
       {children}
     </PostsContext.Provider>
   )

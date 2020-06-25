@@ -13,7 +13,7 @@ interface IProps {
 
 const SortItem: React.FunctionComponent<IProps> = ({ title, isSelected, setFilter }) => {
 
-  const [filterState, setFilterState] = React.useState(FilterState.None);
+  const [filterState, setFilterState] = React.useState(FilterState.DESC);
   const [clickCount, setClickCount] = React.useState(0);
 
   let icon = <EmptyIcon></EmptyIcon>;
